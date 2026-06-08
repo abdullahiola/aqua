@@ -19,7 +19,18 @@ export default function Hero() {
 
         <div className="max-w-[1200px] mx-auto px-6 relative z-10 pt-16 md:pt-24 lg:pt-28">
           {/* Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.15] tracking-tight mb-5 italic">
+          <h1
+            style={{
+              fontFamily: '"Inter Tight", Arial, sans-serif',
+              fontStyle: "normal",
+              fontWeight: 500,
+              fontSize: "76px",
+              lineHeight: "68px",
+              color: "rgb(255, 255, 255)",
+              letterSpacing: "-0.02em",
+            }}
+            className="mb-5"
+          >
             Pass First
             <br />
             Pay Later

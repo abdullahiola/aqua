@@ -33,17 +33,18 @@ const highlights = [
 
 export default function HighlightsBar() {
   return (
-    <section className="py-12">
+    <section className="pt-4 pb-12">
       <div className="container-main">
-        <div className="flex items-center justify-center gap-12 md:gap-20 flex-wrap">
+        {/* Mobile: 3-column grid, icon on top | Desktop: horizontal row */}
+        <div className="grid grid-cols-3 md:flex md:items-center md:justify-center md:gap-20 gap-4">
           {highlights.map((item) => (
-            <div key={item.title} className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-card-bg-light border border-card-border flex items-center justify-center">
+            <div key={item.title} className="flex flex-col items-center text-center gap-3 md:flex-row md:text-left md:gap-3">
+              <div className="w-14 h-14 rounded-2xl bg-card-bg-light border border-card-border flex items-center justify-center shrink-0">
                 {item.icon}
               </div>
               <div>
-                <p className="font-bold text-text-primary text-base">{item.title}</p>
-                <p className="text-sm text-text-muted">{item.subtitle}</p>
+                <p className="font-extrabold text-text-primary text-base md:text-lg">{item.title}</p>
+                <p className="text-xs md:text-sm font-medium text-text-muted">{item.subtitle}</p>
               </div>
             </div>
           ))}

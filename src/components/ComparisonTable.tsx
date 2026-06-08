@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const comparisonRows = [
   { feature: "Profit split", aqua: "100%", ftmo: "80%", industry: "80%", aquaIsCheck: false },
   { feature: "Reward guarantee", aqua: true, ftmo: false, industry: false, aquaIsCheck: true },
@@ -72,8 +74,8 @@ export default function ComparisonTable() {
       <div className="container-main relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="w-14 h-14 rounded-2xl bg-white border border-card-border flex items-center justify-center mx-auto mb-4 shadow-sm">
-            <span className="text-brand-blue font-extrabold text-sm">AF</span>
+          <div className="relative w-20 h-20 rounded-2xl bg-white border border-card-border mx-auto mb-4 shadow-sm overflow-hidden">
+            <Image src="/af.webp" alt="AquaFunded" fill sizes="80px" className="object-cover" />
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
             Why AquaFunded?
@@ -84,7 +86,8 @@ export default function ComparisonTable() {
         </div>
 
         {/* Table */}
-        <div className="card overflow-hidden max-w-[700px] mx-auto">
+        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="card overflow-hidden max-w-[700px] mx-auto min-w-[520px] sm:min-w-0">
           <table className="w-full" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
             <thead>
               <tr>
@@ -105,7 +108,7 @@ export default function ComparisonTable() {
               {comparisonRows.map((row, i) => (
                 <tr key={row.feature} className={i % 2 === 1 ? "bg-[#F8FAFD]" : "bg-white"}>
                   <td className="p-4 text-left">
-                    <span className="flex items-center gap-2.5 text-sm text-text-primary font-medium">
+                    <span className="flex items-center gap-2.5" style={{ fontFamily: '"Inter Tight", Arial, sans-serif', fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(0,0,0)' }}>
                       <span className="text-text-muted">{featureIcons[row.feature]}</span>
                       {row.feature}
                     </span>
@@ -114,27 +117,28 @@ export default function ComparisonTable() {
                     {row.aquaIsCheck ? (
                       <DoubleCheck />
                     ) : (
-                      <span className="text-brand-blue font-bold text-sm">{row.aqua as string}</span>
+                      <span className="text-brand-blue font-semibold" style={{ fontFamily: '"Inter Tight", Arial, sans-serif', fontWeight: 400, fontSize: '16px', lineHeight: '24px' }}>{row.aqua as string}</span>
                     )}
                   </td>
                   <td className="p-4 text-center">
                     {typeof row.ftmo === "boolean" ? (
                       row.ftmo ? <DoubleCheck /> : <CrossMark />
                     ) : (
-                      <span className="text-text-muted text-sm">{row.ftmo}</span>
+                      <span style={{ fontFamily: '"Inter Tight", Arial, sans-serif', fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(0,0,0)' }}>{row.ftmo}</span>
                     )}
                   </td>
                   <td className="p-4 text-center">
                     {typeof row.industry === "boolean" ? (
                       row.industry ? <DoubleCheck /> : <CrossMark />
                     ) : (
-                      <span className="text-text-muted text-sm">{row.industry}</span>
+                      <span style={{ fontFamily: '"Inter Tight", Arial, sans-serif', fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(0,0,0)' }}>{row.industry}</span>
                     )}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
         </div>
 
         {/* CTA */}

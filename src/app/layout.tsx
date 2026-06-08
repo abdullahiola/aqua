@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -33,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className} ${inter.variable} antialiased`}>
+    <html lang="en" className={`${interTight.className} ${interTight.variable} antialiased`}>
       <body className="min-h-screen">{children}</body>
     </html>
   );
